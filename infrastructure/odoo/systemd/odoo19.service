@@ -1,0 +1,23 @@
+[Unit]
+Description=Odoo 19
+Documentation=https://www.odoo.com/documentation/19.0/
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=odoo19
+Group=odoo19
+WorkingDirectory=/opt/odoo19
+ExecStart=/opt/odoo19/venv/bin/python3.10 /opt/odoo19/odoo-bin -c /etc/odoo19.conf
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+# Keep the service environment deterministic.
+Environment=PYTHONUNBUFFERED=1
+
+# Do not place passwords or API keys in this unit file.
+
+[Install]
+WantedBy=multi-user.target
