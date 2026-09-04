@@ -1,0 +1,28 @@
+[options]
+
+; PostgreSQL — local to odoo-srv.
+db_host = 127.0.0.1
+db_port = 5432
+db_user = odoo19
+db_password = CHANGE_ME
+
+; Runtime.
+http_interface = 0.0.0.0
+http_port = 8069
+
+; Enable only when Odoo is behind the trusted reverse proxy.
+proxy_mode = True
+
+; Logging.
+logfile = /var/log/odoo/odoo.log
+
+; Optional: define explicitly if the deployment uses a non-default data directory.
+; data_dir = /var/lib/odoo
+
+; Security-sensitive master password.
+; Store the real value only on the target host, never in Git.
+admin_passwd = CHANGE_ME
+
+; Production worker configuration should be sized from measured workload.
+; workers = 2
+; max_cron_threads = 1
